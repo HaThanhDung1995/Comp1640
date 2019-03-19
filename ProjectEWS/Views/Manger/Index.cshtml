@@ -1,0 +1,54 @@
+﻿@model List<ProjectEWS.Entity.Magazine>
+
+<table class="table table-border">
+    <thead>
+        <tr>
+            <td>Student</td>
+            <td>CourseManger</td>
+            <td>Course</td>
+            <td>Sent Date</td>
+            <td>Semester</td>
+            <td>Deadline</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Student.FullName</td>
+                <td>@item.Student.Coordinator.FullName</td>
+                <td>@item.Student.Coordinator.Cours.Name</td>
+                <td>@item.SentDate</td>
+                <td>@item.Semester.Name</td>
+                <td>@item.Semester.EndDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+
+    if (ViewBag.url != null)
+    {
+        var url = ViewBag.url;
+<form action="/Manger/DownloadFile" method="post">
+    <div class="form-group">
+        <input type="hidden" value="@url" name="Url" />
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="DownLoad Zip File" class="btn btn-default" />
+    </div>
+</form>
+    }
+
+}
+
+
+@using (Html.BeginForm("Zip", "Manger", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <input type="submit" value="Zip" class="btn btn-default" />
+    </div>
+}
+

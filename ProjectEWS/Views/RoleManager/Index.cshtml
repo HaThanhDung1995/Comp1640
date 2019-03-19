@@ -1,0 +1,78 @@
+﻿@using ProjectEWS.Entity
+@model Role
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" href="#edit">
+            <span class="glyphicon glyphicon-edit"></span> Edit
+        </a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#list">
+            <span class="glyphicon glyphicon-edit"></span> List
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div id="edit" class="tab-pane fade in active">
+        @using (Html.BeginForm())
+        {
+            <div class="panel panel-danger">
+                <div class="panel-heading">@TempData["Message"]</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Id</label>
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @readonly = true })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                    
+
+                </div>
+                <div class="panel-footer">
+                    <button formaction="/RoleManager/Insert">Insert</button>
+                    <button formaction="/RoleManager/Update">Update</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="list" class="tab-pane fade">
+        <div class="panel panel-success">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Item in ViewBag.Items as List<Role>)
+                    {
+                        <tr>
+                            <td>@Item.Id</td>
+                            <td>@Item.Name</td>
+                            <td>
+                                <a class="btn btn-sm btn-default" href="/RoleManager/Edit/@Item.Id">
+                                    <span class="glyphicon glyphicon-star"></span> Edit
+                                </a>
+                                <a class="btn btn-sm btn-default" href="/RoleManager/Delete/@Item.Id">
+                                    <span class="glyphicon glyphicon-star"></span> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

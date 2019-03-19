@@ -1,0 +1,15 @@
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Repository.dll.config
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Repository.dll
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Repository.pdb
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\EntityFramework.dll
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Entity.dll
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Entity.pdb
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\ProjectEWS.Entity.dll.config
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\EntityFramework.xml
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\obj\Debug\ProjectEWS.Repository.csprojAssemblyReference.cache
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\obj\Debug\ProjectEWS.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\obj\Debug\ProjectEWS.Repository.csproj.CopyComplete
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\obj\Debug\ProjectEWS.Repository.dll
+C:\Users\Dung\Desktop\COMP1640\ProjectEWS\ProjectEWS\ProjectEWS.Repository\obj\Debug\ProjectEWS.Repository.pdb

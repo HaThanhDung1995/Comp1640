@@ -1,0 +1,31 @@
+﻿@using ProjectEWS.Entity
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Student Name</th>
+        <th>Semester</th>
+        <th>SendDate</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var Item in ViewBag.Items as List<Magazine>)
+    {
+        <tr>
+            <td>@Item.Id</td>
+            <td>@Item.Student.FullName</td>
+            <td>@Item.Semester.Name</td>
+            <td>@Item.SentDate</td>
+            <td>
+                           
+                <a class="btn btn-sm btn-default" href="/MegazineManager/Delete/@Item.Id">
+                    <span class="glyphicon glyphicon-star"></span> Delete
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

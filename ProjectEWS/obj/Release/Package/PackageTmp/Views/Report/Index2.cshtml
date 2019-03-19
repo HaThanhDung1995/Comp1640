@@ -1,0 +1,147 @@
+﻿
+@section scripts{
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            url: "/Report/ChartByNumberOfFile2",
+            success: function (result) {
+
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(function () {
+                    drawChart(result.model);
+                });
+            }
+        });
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            url: "/Admin/Chart/DataOrder",
+            success: function (result) {
+
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(function () {
+                    drawChart2(result.dung);
+                });
+            }
+        });
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            url: "/Admin/Chart/ByYear",
+            success: function (result) {
+
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(function () {
+                    drawChart3(result.dung);
+                });
+            }
+        });
+
+
+    });
+    // Load the Visualization API and the corechart package.
+
+
+    // Set a callback to run when the Google Visualization API is loaded.
+
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart(result) {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Marks Ontained');
+
+
+        var dataArray = [];
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.Group, obj.Quantity]);
+        });
+        data.addRows(dataArray
+
+        );
+        // Set chart options
+
+        var columnChartOptions = {
+            title: "By Course",
+            width: 1000,
+            height: 400
+
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, columnChartOptions);
+    }
+    function drawChart2(result) {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Marks Ontained');
+
+
+        var dataArray = [];
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.Group, obj.Value]);
+        });
+        data.addRows(dataArray
+
+        );
+        // Set chart options
+
+        var columnChartOptions = {
+            title: "By Store",
+            width: 1000,
+            height: 400
+
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+        chart.draw(data, columnChartOptions);
+    }
+    function drawChart3(result) {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Marks Ontained');
+
+
+        var dataArray = [];
+        $.each(result, function (i, obj) {
+            dataArray.push([obj.Group, obj.Value]);
+        });
+        data.addRows(dataArray
+
+        );
+        // Set chart options
+
+        var columnChartOptions = {
+            title: "By Year",
+            width: 1000,
+            height: 400
+
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div3'));
+        chart.draw(data, columnChartOptions);
+    }
+</script>
+}
+
+<div id="chart_div"></div>
+<div id="chart_div2"></div>
+<div id="chart_div3"></div>

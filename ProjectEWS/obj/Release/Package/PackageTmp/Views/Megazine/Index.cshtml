@@ -1,0 +1,33 @@
+﻿@model ProjectEWS.Entity.Magazine
+@{
+    if (ViewBag.message != null)
+    {
+        <h2>@ViewBag.message</h2>
+    }}
+@using (Html.BeginForm("Index", "Megazine", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <label>Comment</label>
+        @Html.TextBoxFor(model => model.Comment, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Semester</label>
+        @Html.TextBoxFor(model => model.SentDate, new { @class = "form-control", @readonly = true })
+    </div>
+    <div class="form-group">
+        <label>Semester</label>
+        @Html.DropDownList("SemesterId")
+    </div>
+    <div class="form-group">
+        <label>Do you agree with out deal?  @Html.CheckBox("Agree")</label>
+        
+    </div>
+    <div class="form-group">
+        <label>File</label>
+        <input type="file" name="ImageUpload" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+}
+

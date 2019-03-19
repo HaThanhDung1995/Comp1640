@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <header class="nn-header row">
+            <div class="nn-company">
+                <h1>Online shopping mall</h1>
+                <h5>The center point of the professional programming</h5>
+            </div>
+            <img class="pull-right" src="/images/header-object.png" />
+        </header>
+        @Html.Partial("_Menu")
+
+
+        <div class="nn-sheet row">
+
+            <article class="col-sm-12">
+                <div class="nn-body">
+                    @RenderBody()
+                </div>
+            </article>
+
+
+        </div>
+
+        <footer class="panel panel-default row">
+            <div class="panel-heading">
+                <p class="text-center">Student Megazine 2019.</p>
+            </div>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

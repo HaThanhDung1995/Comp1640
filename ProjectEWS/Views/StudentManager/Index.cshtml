@@ -1,0 +1,101 @@
+﻿@using ProjectEWS.Entity
+@model Student
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .picturestudent {
+        max-width: 95%;
+        height: 80px;
+    }
+</style>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" href="#edit">
+            <span class="glyphicon glyphicon-edit"></span> Edit
+        </a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#list">
+            <span class="glyphicon glyphicon-edit"></span> List
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div id="edit" class="tab-pane fade in active">
+        @using (Html.BeginForm())
+        {
+            <div class="panel panel-danger">
+                <div class="panel-heading">@TempData["Message"]</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Id</label>
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @readonly = true })
+                    </div>
+
+                    <div class="form-group">
+                        <label>UserName</label>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" name="UpImage" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>FullName</label>
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        @Html.PasswordFor(m => m.Pass, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Course</label>
+                        @Html.DropDownList("CoordinatorId", null, new { @class = "form-control" })
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    <button formaction="/CoordinatorManager/Insert">Insert</button>
+                    <button formaction="/CoordinatorManager/Update">Update</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="list" class="tab-pane fade">
+        <div class="panel panel-success">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>FullName</th>
+                        <th>Picture</th>
+                        <th>CourseManager</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Item in ViewBag.Items as List<Student>)
+                    {
+                        <tr>
+                            <td>@Item.Id</td>
+                            <td>@Item.FullName</td>
+                            <td><img  class="picturestudent" src="http://localhost:52806/images/products/@Item.ImgUrl"/></td>
+                            <td>@Item.Coordinator.FullName</td>
+                            <td>
+                                <a class="btn btn-sm btn-default" href="/CoordinatorManager/Edit/@Item.Id">
+                                    <span class="glyphicon glyphicon-star"></span> Edit
+                                </a>
+                                <a class="btn btn-sm btn-default" href="/CoordinatorManager/Delete/@Item.Id">
+                                    <span class="glyphicon glyphicon-star"></span> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

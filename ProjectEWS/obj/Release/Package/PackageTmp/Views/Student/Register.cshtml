@@ -1,0 +1,28 @@
+﻿@model ProjectEWS.Entity.Student
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Student", FormMethod.Post,new{ enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Username" })
+    </div>
+    <div class="form-group">
+        @Html.PasswordFor(model => model.Pass, new { @class = "form-control", placeholder = "Password" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", placeholder = "FullName" })
+    </div>
+    <div class="form-group">
+        @Html.DropDownList("CoordinatorId")
+    </div>
+    <div class="form-group">
+        <label>Picture</label>
+        <input type="file" name="ImageUpload" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Submit</button>
+    </div>
+}
+

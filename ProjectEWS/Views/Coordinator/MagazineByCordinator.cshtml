@@ -1,0 +1,35 @@
+﻿@using ProjectEWS.Entity
+@model List<Student>
+
+
+<table class="table table-border">
+    <thead>
+        <tr>
+            <td>Student</td>
+            <td>SendDate</td>
+            <td>Comment</td>
+            <td>Semester</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+
+            foreach (var magazine in item.Magazines)
+            {
+                <tr>
+                    <td>@item.FullName</td>
+                    <td>@magazine.SentDate</td>
+                    <td>@magazine.Comment</td>
+                    <td>@magazine.Semester.Id</td>
+                </tr>
+            }
+
+
+
+        }
+    </tbody>
+</table>
+
